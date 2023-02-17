@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Giveaway } from "../types/giveaway.type";
+import { Thumbnail } from "./Thumbnail";
 
 export interface IGiveawayCardProps {
   giveaway: Giveaway;
@@ -10,21 +11,16 @@ export function GiveawayCard(props: IGiveawayCardProps) {
   const { giveaway } = props;
 
   return (
-    <View style={styles.item}>
+    <View style={styles.card}>
+      <Thumbnail img={giveaway.thumbnail} platforms={giveaway.platforms} />
       <Text style={styles.title}>{giveaway.title}</Text>
-      <Image
-        style={styles.thumbnail}
-        source={{
-          uri: giveaway.thumbnail,
-        }}
-      />
-      <Text>{JSON.stringify(giveaway)}</Text>
+      <Text>{giveaway.description}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  item: {
+  card: {
     backgroundColor: "#f9c2ff",
     padding: 20,
     marginVertical: 8,
@@ -32,10 +28,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   title: {
-    fontSize: 32,
-  },
-  thumbnail: {
-    width: 50,
-    height: 100,
+    fontSize: 22,
   },
 });

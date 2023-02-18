@@ -13,8 +13,10 @@ export function GiveawayCard(props: IGiveawayCardProps) {
   return (
     <View style={styles.card}>
       <Thumbnail img={giveaway.thumbnail} platforms={giveaway.platforms} />
-      <Text style={styles.title}>{giveaway.title}</Text>
-      <Text>{giveaway.description}</Text>
+      <View style={styles.bottomCard}>
+        <Text style={styles.title}>{giveaway.title}</Text>
+        <Text>{giveaway.description}</Text>
+      </View>
     </View>
   );
 }
@@ -22,12 +24,14 @@ export function GiveawayCard(props: IGiveawayCardProps) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: "#f9c2ff",
-    padding: 20,
     marginVertical: 8,
-    marginHorizontal: 8,
+    marginHorizontal: 18,
     borderRadius: 8,
   },
   title: {
     fontSize: 22,
   },
+  bottomCard: {
+    padding: 16,
+  }
 });

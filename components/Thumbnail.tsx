@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     overflow: "hidden",
-    borderRadius: 8,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
   },
   thumbnail: {
     width: "100%",

@@ -5,14 +5,15 @@ import { Thumbnail } from "./Thumbnail";
 
 export interface IGiveawayCardProps {
   giveaway: Giveaway;
+  navigation: any;
 }
 
 export function GiveawayCard(props: IGiveawayCardProps) {
-  const { giveaway } = props;
+  const { giveaway, navigation } = props;
 
   return (
     <View style={styles.card}>
-      <Thumbnail img={giveaway.thumbnail} platforms={giveaway.platforms} />
+      <Thumbnail img={giveaway.thumbnail} platforms={giveaway.platforms} navigation={navigation} id={giveaway.id} />
       <View style={styles.bottomCard}>
         <Text style={styles.title}>{giveaway.title}</Text>
         <Text>{giveaway.description}</Text>

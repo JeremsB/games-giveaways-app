@@ -9,7 +9,7 @@ import { useQuery } from "react-query";
 import { listGiveaways } from "../api/axios";
 import { GiveawayCard } from "../components/GiveawayCard";
 
-export default function GamesList() {
+export default function GamesList({navigation}) {
   const { data, error, isError, isLoading } = useQuery(
     "giveaways",
     listGiveaways
@@ -28,7 +28,7 @@ export default function GamesList() {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={data}
-        renderItem={({ item }) => <GiveawayCard giveaway={item} />}
+        renderItem={({ item }) => <GiveawayCard giveaway={item} navigation={navigation} />}
         keyExtractor={(item) => String(item.id)}
       />
     </SafeAreaView>

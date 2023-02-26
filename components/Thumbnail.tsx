@@ -1,21 +1,29 @@
 import * as React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
 export interface IThumbnailProps {
   img: string;
   platforms: string;
+  id: number;
+  navigation: any
 }
 
 export function Thumbnail(props: IThumbnailProps) {
-  const { img, platforms } = props;
+  const { img, platforms, navigation, id } = props;
+  function onNavigate() {
+    navigation.navigate('Detail', {
+      id: id,
+    })
+  }
+
   return (
-    <View style={styles.imageWrapper}>
+    <TouchableHighlight style={styles.imageWrapper} onPress={onNavigate}>
       <ImageBackground style={styles.thumbnail} source={{ uri: img }}>
         <View style={styles.platformsDiv}>
           <Text style={styles.platforms}>{platforms}</Text>
         </View>
       </ImageBackground>
-    </View>
+    </TouchableHighlight>
   );
 }
 
